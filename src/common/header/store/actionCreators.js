@@ -29,11 +29,7 @@ export const getList = () => {
         axios.get(BASE_URL + 'site/nav').then((res)=>{
             const result = Extract(res.data);
             const data = result.data;
-            const list = [];
-            for (let i = 0; i<data.length; i++){
-                list.push(data[i].title);
-            }
-            dispatch(ChangeList(list));
+            dispatch(ChangeList(data));
         }).catch(()=>{
             console.log('error');
         })

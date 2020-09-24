@@ -3,24 +3,30 @@ import {connect} from "react-redux"
 import {Logo} from "./style";
 import {actionCreators} from "./store";
 
-import { Layout, Menu } from 'antd';
+import {Layout, Menu} from 'antd';
 import 'antd/dist/antd.css';
+import {Link} from "react-router-dom";
 
 const { Header } = Layout;
 
 class HeaderRM extends Component{
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return nextProps.name !== this.props.name || nextProps.list !== this.props.list;
+
+    getList(){
+        const { list } = this.props;
+        return list.toJS();
     }
 
     getMenuItems(){
-        const { list } = this.props;
-        const newList = list.toJS();
+        const newList = this.getList()
         const pageList = [];
         if (newList.length){
             for (let i = 0; i<newList.length; i++){
                 pageList.push(
-                    <Menu.Item key={'nav'+i}>{newList[i]}</Menu.Item>
+                    <Menu.Item key={'nav'+i}>
+                        <Link to={newList[i].path}>
+                            {newList[i].title}
+                        </Link>
+                    </Menu.Item>
                 );
             }
         }
