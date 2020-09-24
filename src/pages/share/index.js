@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import { Layout , Tag, Card, List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-import {Con} from "../style";
+import {ConS} from "../style";
 
 const { Content } = Layout;
 
@@ -10,7 +10,7 @@ class Share extends Component{
     render(){
 
         const listData = [];
-        for (let i = 0; i < 23; i++) {
+        for (let i = 0; i < 9; i++) {
             listData.push({
                 href: 'https://ant.design',
                 title: `ant design part ${i}`,
@@ -30,7 +30,7 @@ class Share extends Component{
         return (
             <Fragment>
                 <Content style={{ padding: '0 50px', marginTop: 64, marginLeft: 100 }}>
-                    <Con>
+                    <ConS>
                             <List
                                 itemLayout="vertical"
                                 size="large"
@@ -64,22 +64,21 @@ class Share extends Component{
                                     </List.Item>
                                 )}
                             />
-                        </Con>
+                        </ConS>
                     <Card title="标签" style={{ width: 300, float: "left", marginLeft: 50 }}>
                         <Tag color="magenta">magenta</Tag>
                         <Tag color="red">red</Tag>
                         <Tag color="volcano">volcano</Tag>
                         <Tag color="orange">orange</Tag>
                         <Tag color="gold" style={{marginTop:10}}>gold</Tag>
-                        <Tag color="lime">lime</Tag>
+                        <Tag color="lime" style={{marginTop:10}}>lime</Tag>
                         <Tag color="green">green</Tag>
                         <Tag color="cyan">cyan</Tag>
                         <Tag color="blue">blue</Tag>
-                        <Tag color="geekblue">geekblue</Tag>
+                        <Tag color="geekblue" style={{marginTop:10}}>geekblue</Tag>
                         <Tag color="purple">purple</Tag>
                     </Card>
                 </Content>
-
             </Fragment>
         );
     }
