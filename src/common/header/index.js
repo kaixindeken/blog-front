@@ -3,11 +3,12 @@ import {connect} from "react-redux"
 import {Logo} from "./style";
 import {actionCreators} from "./store";
 
-import {Layout, Menu} from 'antd';
+import {Layout, Menu, Input} from 'antd';
 import 'antd/dist/antd.css';
 import {Link} from "react-router-dom";
 
 const { Header } = Layout;
+const { Search } = Input;
 
 class HeaderRM extends Component{
 
@@ -30,6 +31,14 @@ class HeaderRM extends Component{
                 );
             }
         }
+        pageList.push(
+                <Search
+                    enterButton="搜索"
+                    style={{width: 200, marginTop: 15, float: "right" }}
+                    onSearch={value => console.log(value)}
+                />
+        );
+
         return pageList;
     }
 
