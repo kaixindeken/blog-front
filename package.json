@@ -3,17 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.6.5",
+    "highlight.js": "^10.2.1",
+    "hljs": "^6.2.3",
     "immutable": "^4.0.0-rc.12",
+    "marked": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-editor-md": "^1.0.19",
+    "react-loadable": "^5.5.0",
+    "react-markdown": "^4.3.1",
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
+    "remark-toc": "^7.0.0",
     "styled-components": "^5.2.0"
   },
   "scripts": {
@@ -39,6 +47,8 @@
   },
   "devDependencies": {
     "axios": "^0.20.0",
+    "markdown": "^0.5.0",
+    "prop-types": "^15.7.2",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0"
   }

@@ -8,7 +8,7 @@ const ChangeTags = (data) => ({
 });
 
 const ChangeArticles = (data) => ({
-    type: constants.CHANGE_ARTICLE_DATA,
+    type: constants.CHANGE_ARTICLE_LIST,
     data:data
 });
 
@@ -29,11 +29,10 @@ export const getArticles = ()=>{
             const result = Extract(res.data);
             const data = result.data;
             for (let i=0;i<data.length;i++){
-                let desc = '| ';
-                for (let j=0;j<data[i].tag.length;j++){
-                    desc = desc + data[i].tag[j].title + ' | '
+                data[i].views = 0;
+                if (data[i].view !== null){
+                    data[i].views = data[i].view.views;
                 }
-                data[i].description = desc;
             }
             dispatch(ChangeArticles(data));
         }).catch(()=>{

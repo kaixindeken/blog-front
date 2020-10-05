@@ -8,11 +8,6 @@ const ChangeName = (data) => ({
     data: fromJS(data)
 });
 
-const ChangeList = (data) => ({
-    type: constants.CHANGE_LIST,
-    data: fromJS(data)
-});
-
 export const getName = () => {
     return (dispatch)=>{
         axios.get(BASE_URL + 'site/name').then((res)=>{
@@ -22,16 +17,4 @@ export const getName = () => {
             console.log('error');
         });
     }
-}
-
-export const getList = () => {
-    return (dispatch)=>{
-        axios.get(BASE_URL + 'site/nav').then((res)=>{
-            const result = Extract(res.data);
-            const data = result.data;
-            dispatch(ChangeList(data));
-        }).catch(()=>{
-            console.log('error');
-        })
-    }
-}
+};

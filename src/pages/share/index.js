@@ -1,5 +1,6 @@
-import React, {Component, Fragment} from "react";
-import { Layout,BackTop  } from 'antd';
+import React, {PureComponent} from "react";
+import { Layout, PageHeader  } from 'antd';
+
 import ArticleList from './components/List';
 import TagsCard from "./components/TagsCard";
 import {actionCreators} from "./store";
@@ -7,28 +8,19 @@ import {connect} from "react-redux";
 
 const { Content } = Layout;
 
-class Share extends Component{
+class Share extends PureComponent{
 
     render(){
+        window.scrollTo(0, 0)
         return (
-            <Fragment>
-                <Content style={{ padding: '0 100px',margin:'50px 0', overflow:"hidden" }}>
-                    <ArticleList />
-                    <TagsCard />
-                </Content>
-                <BackTop style={{
-                    height: 40,
-                    width: 40,
-                    lineHeight: '40px',
-                    borderRadius: 4,
-                    backgroundColor: '#1088e9',
-                    color: '#fff',
-                    textAlign: 'center',
-                    fontSize: 14,
-                }}>
-                    Up
-                </BackTop>
-            </Fragment>
+            <Content style={{ padding: '0 100px', overflow:"hidden" }}>
+                <PageHeader
+                    title="分享"
+                    subTitle="分享创造，分享技巧"
+                />
+                <ArticleList />
+                <TagsCard />
+            </Content>
         );
     }
 

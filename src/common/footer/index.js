@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { PureComponent} from "react";
 import {connect} from "react-redux";
 import {actionCreators} from "./store";
 
@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 
 const { Footer } = Layout;
 
-class FooterRM extends Component{
+class FooterRM extends PureComponent{
 
     render(){
 
