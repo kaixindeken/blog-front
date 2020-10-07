@@ -3,7 +3,7 @@ import {Provider} from 'react-redux'
 import Header from './common/header'
 import store from "./store";
 import {BackTop, Layout} from 'antd';
-import {BrowserRouter, Redirect, Route} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import Footer from "./common/footer";
 import Share from "./pages/share";
 import Detail from "./pages/album/loadable";
