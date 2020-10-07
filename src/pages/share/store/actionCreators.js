@@ -12,6 +12,11 @@ const ChangeArticles = (data) => ({
     data:data
 });
 
+const ChangeHotspot = (data) => ({
+    type: constants.CHANGE_HOTSPOT,
+    data: data
+});
+
 export const getTags = () => {
     return (dispatch)=>{
         axios.get(BASE_URL + 'share/tags').then((res)=>{
@@ -40,3 +45,15 @@ export const getArticles = ()=>{
         });
     }
 };
+
+export const getHotspot = () => {
+    return (dispatch) => {
+        axios.get(BASE_URL + 'hotspot').then((res)=>{
+            const result = Extract(res.data);
+            const data = result.data;
+            dispatch(ChangeHotspot(data));
+        }).catch(()=>{
+            console.log('error');
+        });
+    }
+}

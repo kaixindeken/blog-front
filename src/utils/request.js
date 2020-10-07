@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://newblog.test/api/'
+export const BASE_URL = 'https://nbapi.kaixindeken.top/api/'
 
 export function Extract(d){
     return {

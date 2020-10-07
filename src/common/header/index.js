@@ -8,23 +8,26 @@ import 'antd/dist/antd.css';
 import {Link} from "react-router-dom";
 
 const { Header } = Layout;
-
 class HeaderRM extends PureComponent{
 
     render() {
-        const {name, handleName} = this.props;
+        const {name} = this.props;
 
         return (
             <Header width={'100px'}>
                 <Link to="/">
-                    <Logo className={handleName(name)}>{name}</Logo>
+                    <Logo>{name}</Logo>
                 </Link>
-                <Menu theme={'dark'} mode="horizontal">
+                <Menu theme={'dark'} mode="horizontal" style={{overflow: "hidden"}}>
                     <Menu.Item><Link to={'/'}>分享</Link></Menu.Item>
                     <Menu.Item><Link to={'/album'}>专栏</Link></Menu.Item>
                 </Menu>
             </Header>
         )
+    }
+
+    componentDidMount() {
+        this.props.handleName();
     }
 
 }
@@ -37,10 +40,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleName(name){
-            if (name === '' ){
-                dispatch(actionCreators.getName())
-            }
+        handleName(){
+            dispatch(actionCreators.getName())
         }
     }
 }

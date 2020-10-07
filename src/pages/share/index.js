@@ -5,6 +5,7 @@ import ArticleList from './components/List';
 import TagsCard from "./components/TagsCard";
 import {actionCreators} from "./store";
 import {connect} from "react-redux";
+import HotAlbum from "./components/HotAlbum";
 
 const { Content } = Layout;
 
@@ -20,6 +21,7 @@ class Share extends PureComponent{
                 />
                 <ArticleList />
                 <TagsCard />
+                <HotAlbum />
             </Content>
         );
     }
@@ -27,6 +29,7 @@ class Share extends PureComponent{
     componentDidMount() {
         this.props.changeTagsData();
         this.props.changeListData();
+        this.props.changeHotspot();
     }
 }
 
@@ -38,6 +41,10 @@ const mapDispatch = (dispatch)=>({
     changeListData(){
         const action = actionCreators.getArticles();
         dispatch(action);
+    },
+    changeHotspot(){
+        const action = actionCreators.getHotspot();
+        dispatch(action)
     }
 })
 

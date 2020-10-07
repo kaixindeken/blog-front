@@ -3,13 +3,13 @@ import {Provider} from 'react-redux'
 import Header from './common/header'
 import store from "./store";
 import {BackTop, Layout} from 'antd';
-import {BrowserRouter , Route} from 'react-router-dom'
+import {BrowserRouter, Redirect, Route} from 'react-router-dom'
 import Footer from "./common/footer";
 import Share from "./pages/share";
-import Detail from "./pages/detail/loadable";
-import './App.css';
+import Detail from "./pages/album/loadable";
 import Result from "./pages/result";
 import Album from "./pages/album";
+import './App.css';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
                   <Route path={'/detail/:id'} exact component={Detail}/>
                   <Route path={'/result/:type/:id'} exact component={Result}/>
                   <Route path={'/album'} exact component={Album}/>
+                  <Route path={'/admin'} exact render={()=>{window.location.href = 'https://nbapi.kaixindeken.top/admin'}}/>
 
                   <BackTop style={{
                       height: 40,

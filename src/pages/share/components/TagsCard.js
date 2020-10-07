@@ -13,8 +13,8 @@ class TagsCard extends Component{
                 {
                     listData.map((item)=>{
                         return (
-                            <Link to={'/result/tag/'+item.id}>
-                                <Tag key={item.id} color={item.color} style={{marginTop:10, cursor: "pointer"}}>
+                            <Link key={item.id} to={'/result/tag/'+item.id}>
+                                <Tag color={item.color} style={{marginTop:10, cursor: "pointer"}}>
                                     {item.title}
                                 </Tag>
                             </Link>
@@ -30,10 +30,4 @@ const mapState = (state)=>({
     list: state.getIn(['share','tagList'])
 })
 
-const mapDispatch = (dispatch) => ({
-    getResult(id){
-
-    }
-});
-
-export default connect(mapState,mapDispatch)(TagsCard);
+export default connect(mapState)(TagsCard);

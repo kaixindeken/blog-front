@@ -1,12 +1,13 @@
 import React, { PureComponent} from "react";
-import { Layout, PageHeader} from "antd";
-import { ResultDetail } from "../style";
+import {Divider, Layout, PageHeader, Typography} from "antd";
+import {AlbumHead, ResultDetail} from "../style";
 import ArticleList from "./components/ArticleList";
 import {actionCreators} from "../result/store";
 import {connect} from "react-redux";
 import { withRouter } from "react-router-dom"
 
 const { Content } = Layout;
+const {Title, Paragraph} = Typography
 
 class Result extends PureComponent {
     render() {
@@ -16,9 +17,15 @@ class Result extends PureComponent {
             <Content style={{ padding: '0 250px'}}>
                 <PageHeader
                     onBack={() => window.history.back()}
-                    title={title}
-                    subTitle={subtitle}
-                /><ResultDetail>
+                    title={''}
+                    subTitle={'Back'}
+                />
+                <AlbumHead>
+                    <Title>{title}</Title>
+                    <Paragraph>{subtitle}</Paragraph>
+                </AlbumHead>
+                <Divider/>
+                <ResultDetail>
                     <ArticleList/>
                 </ResultDetail>
             </Content>

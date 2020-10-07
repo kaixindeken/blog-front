@@ -1,31 +1,23 @@
 import React, {PureComponent} from "react";
 import { List, Card } from 'antd';
+import {connect} from "react-redux";
+import {Link, withRouter} from "react-router-dom";
 
 class AlbumList extends PureComponent{
     render() {
-
-        const data = [
-            {
-                title: 'Title 1',
-            },
-            {
-                title: 'Title 2',
-            },
-            {
-                title: 'Title 3',
-            },
-            {
-                title: 'Title 4',
-            },
-        ];
-
+        const {list} = this.props;
+        const data = list.toJS();
         return (
             <List
                 grid={{ gutter: 16, column: 4 }}
                 dataSource={data}
                 renderItem={item => (
                     <List.Item>
-                        <Card title={item.title} style={{borderRadius:4}}>Card content</Card>
+                        <Link to={'/result/album/'+item.id}>
+                            <Card title={item.title} style={{borderRadius:4}}>
+                                {item.description.substr(0,35)+'...'}
+                            </Card>
+                        </Link>
                     </List.Item>
                 )}
             />
@@ -33,4 +25,8 @@ class AlbumList extends PureComponent{
     }
 }
 
-export default AlbumList;
+const mapState = (state) => ({
+    list: state.getIn(['album','list'])
+});
+
+export default connect(mapState)(withRouter(AlbumList));

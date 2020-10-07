@@ -3,7 +3,8 @@ import * as constants from "./constants";
 
 const defaultState = fromJS({
     articleList: [],
-    tagList: []
+    tagList: [],
+    hotspot:[]
 });
 
 export default (state = defaultState, action)=>{
@@ -12,6 +13,8 @@ export default (state = defaultState, action)=>{
             return state.set('tagList',fromJS(action.data));
         case constants.CHANGE_ARTICLE_LIST:
             return state.set('articleList',fromJS(action.data));
+        case constants.CHANGE_HOTSPOT:
+            return state.set('hotspot',fromJS(action.data));
         default :
             return state;
     }

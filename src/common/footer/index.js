@@ -11,16 +11,19 @@ class FooterRM extends PureComponent{
 
     render(){
 
-        const {nickname, record, handleRecord} = this.props
+        const { nickname, record } = this.props
 
         return (
-            <Footer
-                style={{ textAlign: 'center' }}
-                className={handleRecord(nickname,record)}
-            >
+            <Footer style={{ textAlign: 'center' }}>
                 由 {nickname} 设计和编码 ｜ 备案号 : {record}
             </Footer>
         );
+    }
+
+    componentDidMount() {
+        const nickname = this.props.nickname;
+        const record = this.props.record;
+        this.props.handleRecord(nickname,record);
     }
 
 }

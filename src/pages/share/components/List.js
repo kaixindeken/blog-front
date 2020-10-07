@@ -11,9 +11,7 @@ class ArticleList extends PureComponent{
         const actions = [];
         for (let i=0;i<tags.length;i++){
             actions.push(
-                <Link to={'/result/tag/'+tags[i].id}>
-                    <Space style={{color: "grey"}}>{tags[i].title}</Space>
-                </Link>
+                <Space style={{color: "grey"}}>{tags[i].title}</Space>
             );
         }
         return actions;
