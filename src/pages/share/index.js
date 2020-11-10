@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React, {Fragment, PureComponent} from "react";
 import { Layout, PageHeader  } from 'antd';
 
 import ArticleList from './components/List';
@@ -14,19 +14,44 @@ class Share extends PureComponent{
     render(){
         window.scrollTo(0, 0)
         return (
-            <Content style={{ padding: '0 100px', overflow:"hidden" }}>
+            <Content style={{ padding: '0 6.7%', overflow:"hidden" }}>
                 <PageHeader
                     title="分享"
                     subTitle="分享创造，分享技巧"
                 />
-                <ArticleList />
-                <TagsCard />
-                <HotAlbum />
+                {this.getArticles()}
+                {this.getCards()}
             </Content>
         );
     }
 
+    getCards(){
+        if (document.body.clientWidth >= 700){
+            return (
+                <Fragment>
+                    <TagsCard />
+                    <HotAlbum />
+                </Fragment>
+            );
+        }
+    }
+
+    getArticles(){
+        if (document.body.clientWidth >= 700){
+            return (
+                <div style={{float:"left", width:"60%"}}>
+                    <ArticleList/>
+                </div>
+            );
+        }else{
+            return (
+                <ArticleList/>
+            );
+        }
+    }
+
     componentDidMount() {
+        console.log(document.body.clientWidth);
         this.props.changeTagsData();
         this.props.changeListData();
         this.props.changeHotspot();

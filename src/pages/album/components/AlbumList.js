@@ -9,19 +9,33 @@ class AlbumList extends PureComponent{
         const data = list.toJS();
         return (
             <List
-                grid={{ gutter: 16, column: 4 }}
+                grid={this.changeTy()}
                 dataSource={data}
                 renderItem={item => (
                     <List.Item>
                         <Link to={'/result/album/'+item.id}>
                             <Card title={item.title} style={{borderRadius:4}}>
-                                {item.description.substr(0,35)+'...'}
+                                {item.description.substr(0,36)+'...'}
                             </Card>
                         </Link>
                     </List.Item>
                 )}
             />
         );
+    }
+
+    changeTy(){
+        if (document.body.clientWidth >= 900){
+            return {
+                gutter: 16,
+                column: 4
+            }
+        }else{
+            return {
+                gutter: 16,
+                column: 1
+            }
+        }
     }
 }
 

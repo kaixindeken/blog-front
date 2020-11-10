@@ -2,10 +2,8 @@ import styled from "styled-components";
 
 export const ListRM = styled.div`
     background: #fff;
-    padding: 24px;
+    padding: 5%;
     min-height: 100%;
-    float: left;
-    width: 65%;
     border-radius: 8px;
 `
 
@@ -22,14 +20,23 @@ export const ContentDetail = styled.div`
 
 export const ResultDetail = styled.div`
     background: #fff;
-    padding: 25px;
+    padding: 5%;
+    float: left;
+    width: 80%;
+    margin-left: 10%;
     min-height: 280px;
     border-radius: 8px;
 `;
 
 export const AlbumHead = styled.div`
     background: #fff;
-    padding: 25px;
+    padding: 5%;
     height: 50%;
     border-radius: 8px;
 `;
+
+export const ImageRM = styled.div`
+    float: right;
+    margin-right: 10%;
+    border: 1px solid;
+`

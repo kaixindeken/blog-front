@@ -3,18 +3,18 @@ import {Provider} from 'react-redux'
 import Header from './common/header'
 import store from "./store";
 import {BackTop, Layout} from 'antd';
-import {BrowserRouter, Route} from 'react-router-dom'
+import {HashRouter, Route} from 'react-router-dom'
 import Footer from "./common/footer";
 import Share from "./pages/share";
-import Detail from "./pages/album/loadable";
-import Result from "./pages/result";
-import Album from "./pages/album";
+import Detail from "./pages/detail/loadable";
+import Result from "./pages/result/loadable";
+import Album from "./pages/album/loadable";
 import './App.css';
 
 function App() {
   return (
       <Provider store={store}>
-          <BrowserRouter>
+          <HashRouter>
               <Layout>
                   <Header />
 
@@ -33,13 +33,11 @@ function App() {
                       color: '#fff',
                       textAlign: 'center',
                       fontSize: 14,
-                  }}>
-                      Up
-                  </BackTop>
+                  }}>Up</BackTop>
 
                   <Footer />
               </Layout>
-          </BrowserRouter>
+          </HashRouter>
       </Provider>
   );
 }

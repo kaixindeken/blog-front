@@ -1,5 +1,5 @@
 import React, { PureComponent} from "react";
-import { Layout, Typography, PageHeader } from 'antd';
+import {Layout, Typography, PageHeader, Divider} from 'antd';
 import {ContentDetail} from "../style";
 import {connect} from "react-redux";
 import {actionCreators} from "./store";
@@ -35,7 +35,7 @@ class Detail extends PureComponent{
         })
 
         return (
-            <Content style={{ padding: '0 250px', margin:'50px 0' }}>
+            <Content style={{ padding: '0 5%', margin:'50px 0' }}>
                 <ContentDetail>
                     <PageHeader
                         title={''}
@@ -44,15 +44,33 @@ class Detail extends PureComponent{
                     />
                     <Title level={2} style={{textAlign:"center"}}>{title}</Title>
                     <br/>
-                    <div style={{fontSize: 16}}>
-                        <ReactMarkdown
-                            source={content}
-                            renderers={{code: CodeBlock}}
-                        />
-                    </div>
+                    <Divider/>
+                    {this.getContent(content)}
                 </ContentDetail>
             </Content>
         );
+    }
+
+    getContent(content){
+        if (document.body.clientWidth >= 700){
+            return (
+                <div style={{fontSize: 16}}>
+                    <ReactMarkdown
+                        source={content}
+                        renderers={{code: CodeBlock}}
+                    />
+                </div>
+            );
+        } else {
+            return (
+                <div style={{fontSize: 14}}>
+                    <ReactMarkdown
+                        source={content}
+                        renderers={{code: CodeBlock}}
+                    />
+                </div>
+            )
+        }
     }
 
     componentDidMount() {

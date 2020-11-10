@@ -9,7 +9,7 @@ class TagsCard extends Component{
         const { list } = this.props;
         const listData = list.toJS()
         return(
-            <Card title="标签" style={{ float:"right", width: 400, borderRadius: 8 }}>
+            <Card title="标签" style={{ float:"right", width: '30%', borderRadius: 8 }}>
                 {
                     listData.map((item)=>{
                         return (

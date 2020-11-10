@@ -1,29 +1,21 @@
 import React, { PureComponent} from "react";
-import {Divider, Layout, PageHeader, Typography} from "antd";
-import {AlbumHead, ResultDetail} from "../style";
+import {Divider, Layout} from "antd";
+import { ResultDetail} from "../style";
 import ArticleList from "./components/ArticleList";
+import RandomImage from "./components/Image"
 import {actionCreators} from "../result/store";
 import {connect} from "react-redux";
 import { withRouter } from "react-router-dom"
+import Topic from "./components/Topic";
 
 const { Content } = Layout;
-const {Title, Paragraph} = Typography
 
 class Result extends PureComponent {
     render() {
         window.scrollTo(0, 0);
-        const {title,subtitle} = this.props
         return (
-            <Content style={{ padding: '0 250px'}}>
-                <PageHeader
-                    onBack={() => window.history.back()}
-                    title={''}
-                    subTitle={'Back'}
-                />
-                <AlbumHead>
-                    <Title>{title}</Title>
-                    <Paragraph>{subtitle}</Paragraph>
-                </AlbumHead>
+            <Content>
+                <Topic/>
                 <Divider/>
                 <ResultDetail>
                     <ArticleList/>

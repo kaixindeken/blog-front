@@ -11,7 +11,16 @@ class HotAlbum extends PureComponent
         const listData = list.toJS();
 
         return (
-            <Card title="热门资源" style={{ float:"right", width: 400, borderRadius: 8, marginTop: 50 }}>
+            <Card
+                title="热门资源"
+                style={{
+                    float:"right",
+                    width: "30%",
+                    borderRadius: 8,
+                    marginTop: "2.5%",
+                }}
+
+            >
                 <List
                     dataSource={listData}
                     renderItem={item => (

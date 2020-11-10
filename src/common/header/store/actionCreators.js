@@ -11,6 +11,7 @@ const ChangeName = (data) => ({
 export const getName = () => {
     return (dispatch)=>{
         axios.get(BASE_URL + 'site/name').then((res)=>{
+            console.log(res);
             const result = Extract(res.data);
             dispatch(ChangeName(result.data.value));
         }).catch(()=>{

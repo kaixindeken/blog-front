@@ -3,7 +3,7 @@ import React from "react";
 import {Spin} from "antd";
 
 const LoadableComponent = Loadable({
-    loader: () => import('../detail'),
+    loader: () => import('./'),
     loading(){
         return (
             <div><Spin/></div>
